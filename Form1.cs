@@ -15,6 +15,7 @@ namespace Laboratorio_5
     {
         List <Informacion> informacion = new List <Informacion> ();
         List <Horas> horas = new List <Horas> ();
+        List <Empleado> empleado = new List <Empleado> ();
 
         public Form1()
         {
@@ -61,16 +62,21 @@ namespace Laboratorio_5
 
             for (int i = 0; i < horas.Count; i++)
             {
+                Empleado a = new Empleado();
+                a.Numero_Empleado = informacion[i].Numero_empleado;
+                a.Nombre = informacion[i].Nombre;
+                a.sueldoXhora = informacion[i].sueldoXHora;
+                a.horasXmes = horas[i].HorasXmes;
+                a.mes = horas[i].mes;
+                a.sueldoXmes = a.horasXmes * a.sueldoXhora;
 
+                empleado.Add(a);
             }
-
-            
-
 
             dataGridView1.DataSource = null;
             dataGridView1.Refresh();
 
-            dataGridView1.DataSource = informacion;
+            dataGridView1.DataSource = empleado;
             dataGridView1.Refresh();
         }
     }
