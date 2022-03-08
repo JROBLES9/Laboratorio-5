@@ -16,7 +16,7 @@ namespace Laboratorio_5
         List <Informacion> informacion = new List <Informacion> ();
         List <Horas> horas = new List <Horas> ();
         List <Empleado> empleado = new List <Empleado> ();
-
+        List<Empleado> aux = new List<Empleado> ();
         public Form1()
         {
             InitializeComponent();
@@ -78,6 +78,25 @@ namespace Laboratorio_5
 
             dataGridView1.DataSource = empleado;
             dataGridView1.Refresh();
+
+            foreach (var a in empleado)
+            {
+                comboBox1.Items.Add(a.Nombre);
+            }
+        }
+        
+        private void BuscarEmpleadoBt_Click(object sender, EventArgs e)
+        {
+            string nombre = comboBox1.SelectedItem.ToString();
+
+            Empleado a = empleado.Find(b => b.Nombre.Equals(nombre));
+            aux.Add(a);
+            
+
+            dataGridView2.DataSource = null;
+            dataGridView2.Refresh();
+            dataGridView2.DataSource = aux;
+            dataGridView2.Refresh();
         }
     }
 }
