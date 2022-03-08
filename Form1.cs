@@ -24,7 +24,8 @@ namespace Laboratorio_5
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string fileName = @"C:\Users\Usuario\source\repos\Laboratorio 5\bin\Debug\Informacion.txt";
+            
+            string fileName = "Informacion.txt";
             FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(stream);
 
@@ -42,7 +43,7 @@ namespace Laboratorio_5
             }
             reader.Close();
             
-            fileName = @"C:\Users\Usuario\source\repos\Laboratorio 5\bin\Debug\Horas.txt";
+            fileName = "Horas.txt";
             stream = new FileStream(fileName, FileMode.Open,FileAccess.Read);
             reader = new StreamReader(stream);
 
